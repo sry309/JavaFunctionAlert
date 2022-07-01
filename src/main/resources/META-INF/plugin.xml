@@ -1,0 +1,30 @@
+<!-- Copyright 2000-2022 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
+<idea-plugin>
+  <name>JavaSecureAlert</name>
+  <version>1.0</version>
+  <vendor email="admin@lufe1.cn" url="http://lufe1.cn">lufe1</vendor>
+
+  <description><![CDATA[
+    SecureAlert alert vul .<br>
+    <em>SecureAlert is alert unsafe function</em>
+    ]]></description>
+
+  <!-- Product and plugin compatibility requirements -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.java</depends>
+
+
+  <actions>
+    <!-- Add your actions here -->
+    <group text="SecureAlert" description="SecureAlert description">
+      <add-to-group group-id="MainMenu" anchor="last"/>
+      <action class="main.Main" text="Alert" />
+    </group>
+  </actions>
+
+  <projectListeners>
+    <listener class="main.FileListener" topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener" />
+  </projectListeners>
+</idea-plugin>

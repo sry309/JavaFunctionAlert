@@ -1,0 +1,11 @@
+jdk:
+  - com.oracle
+  - com.sun
+  - java.
+  - javax.
+  - org.ietf.jgss
+  - org.jcp.xml.dsig.internal
+  - org.omg
+  - org.w3c.dom
+  - org.xml.sax
+  - sun.

@@ -1,0 +1,64 @@
+# 一个漏洞有多个危害，按照危害最高来归类
+command:
+  - java.lang.Runtime.exec
+  - java.lang.ProcessBuilder.command
+
+file:
+  file:
+    - java.io.File.File
+    - java.io.FileInputStream.FileInputStream
+    - java.io.ObjectInputStream.ObjectInputStream
+    - java.nio.file.Files.readAllBytes
+    - java.nio.channels.AsynchronousFileChannel.open
+    - java.io.RandomAccessFile.RandomAccessFile
+    - javax.imageio.ImageIO.read
+  xxe:
+    - javax.xml.parsers.DocumentBuilder.parse
+    - javax.xml.parsers.SAXParser.parse
+    - javax.xml.transform.sax.SAXTransformerFactory.newTransformerHandler
+    - org.xml.sax.XMLReader.parse
+    - javax.xml.validation.Validator.validate
+    - javax.xml.bind.Unmarshaller.unmarshal
+    - javax.xml.stream.XMLInputFactory.createXMLStreamReader
+    - org.dom4j.io.SAXReader.read
+    - org.jdom2.input.SAXBuilder.build
+
+code:
+  serialize:
+    - java.rmi.registry.Registry.bind
+    - java.beans.XMLDecoder.XMLDecoder
+    - sun.rmi.server.UnicastRef.UnicastRef
+
+  rpc:
+    - javax.naming.Context.lookup
+    - java.net.URLClassLoader.URLClassLoader
+
+  dynamic:
+    - java.lang.reflect.Method.invoke
+    - java.lang.Class.forName
+    - javax.script.Compilable.compile
+    - jdk.jshell.JShell.eval
+    - java.lang.ClassLoader.defineClass
+    - javax.script.ScriptEngine.eval
+
+  transform:
+    - javax.xml.transform.Transformer.transform
+
+  module:
+    - freemarker.template.Configuration.getTemplate
+    - org.apache.velocity.app.VelocityEngine.getTemplate
+    - org.thymeleaf.TemplateEngine.process
+
+  expression:
+    - ognl.Ognl.getValue
+    - org.springframework.expression.ExpressionParser.parseExpression
+    - org.apache.commons.jexl2.JexlEngine.createExpression
+    - org.mvel2.MVEL.eval
+
+network:
+  - java.net.URL.URL
+  - java.net.URL.URI
+  - java.net.Socket.Socket
+  - java.sql.DriverManager.getConnection
+  - org.apache.http.client.methods.HttpGet
+  - com.squareup.okhttp.Request.url
